@@ -1,0 +1,13 @@
+{
+    "manifest_version": 3,
+    "name": "Web Scraper",
+    "description": "Gather all text from a webpage into a text file",
+    "version": "1.0",
+    "permissions": ["tabs"],
+    "icons": {
+        "16": "/images/icon16_1.png",
+        "48": "/images/icon48_1.png",
+        "128": "/images/icon128_1.png"
+    }
+
+}
