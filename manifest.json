@@ -9,9 +9,12 @@
         "48": "/images/icon48_1.png",
         "128": "/images/icon128_1.png"
     },
-    "content_scripts": [{"matches": ["<all_urls>"], "js": ["scraper.js"]}],
     "action": {
         "default_popup": "popup.html",
         "default_title": "Web Scraper"
+    },
+    "background": {
+        "service_worker": "content.js",
+        "type": "module"
     }
 }

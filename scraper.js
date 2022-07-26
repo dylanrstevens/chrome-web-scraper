@@ -1,9 +1,7 @@
 import fetch from "node-fetch";
 import * as cheerio from 'cheerio';
 
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    alert(request)
-})
+
 
 
 const getRawData = (URL) => {
