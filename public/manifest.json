@@ -19,17 +19,7 @@
   "permissions": [
     "storage",
     "tabs",
-    "activeTab"
-  ],
-  "content_scripts": [
-    {
-      "matches": [
-        "<all_urls>"
-      ],
-      "run_at": "document_idle",
-      "js": [
-        "contentScript.js"
-      ]
-    }
+    "activeTab",
+    "downloads"
   ]
 }

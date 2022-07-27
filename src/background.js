@@ -1,21 +1,40 @@
 'use strict';
 
-// With background scripts you can communicate with popup
-// and contentScript files.
-// For more information on background script,
-// See https://developer.chrome.com/extensions/background_pages
+import * as cheerio from 'cheerio';
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request.type === 'GREETINGS') {
-    const message = `Hi ${
-      sender.tab ? 'Con' : 'Pop'
-    }, my name is Bac. I am from Background. It's great to hear from you.`;
 
-    // Log message coming from the `request` parameter
-    console.log(request.payload.message);
-    // Send a response message
-    sendResponse({
-      message,
-    });
-  }
+
+chrome.runtime.onMessage.addListener(
+    function (request) {
+
+        const ThisURL = request.msg
+        const ThisTitle = request.page_title
+
+        const getRawData = (ThisURL) => {
+            return fetch(ThisURL).then((response) => response.text()).then((data) => {
+                return data;
+            });
+        }
+
+        const start = async (url) => {
+            const data = await getRawData(url);
+            //console.log(data);
+            const parsedData = cheerio.load(data);
+            const parsed_text = parsedData("p").text()
+            console.log(parsed_text);
+
+            const blob = new Blob([parsed_text], {type: "text/plain"});
+            console.log(blob)
+            const fn = "PLAIN_TEXT_"+ThisTitle+".txt"
+            console.log(fn)
+            var dataUri = "data:text/plain;base64," + btoa(unescape(encodeURIComponent(parsed_text)))
+            console.log(dataUri)
+            chrome.downloads.download({
+              url: dataUri,
+              filename: fn,
+              saveAs: false
+            })
+        }
+
+        start(ThisURL);
 });
