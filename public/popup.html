@@ -1,10 +1,48 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+      <style>
+        body {
+          background-color: rgb(223, 223, 223);
+          width: 150px;
+          height: 100px;
+          text-align: center;
+        }
+        .btn {
+          background-color: rgb(102,100,235);
+          border-color: rgb(102,100,235);
+          border-radius: 8px;
+          box-sizing: border-box;
+          color: white;
+          cursor: pointer;
+          display: inline-block;
+          font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+          font-size: 14px;
+          padding: 2px 12px;
+          position: relative;
+          text-align: center;
+          transition: color 300ms;
+          touch-action: manipulation;
+          height: 45px;
+          width: 135px;
+        }
+        .btn:hover,
+        .btn:focus {
+          background-color: rgb(116, 113, 255);
+        }
+        .title {
+          font-size: 22px;
+          font-weight: bold;
+        }
+      </style>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <button id="btn">Parse</button>
+      <div class="title">
+        Web Scraper
+      </div>
+        <button class="btn" id="btn">Scrape this webpage</button>
         <script type="module" src="popup.js"></script> 
     </body>
 </html>

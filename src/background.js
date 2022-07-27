@@ -21,14 +21,11 @@ chrome.runtime.onMessage.addListener(
             //console.log(data);
             const parsedData = cheerio.load(data);
             const parsed_text = parsedData("p").text()
-            console.log(parsed_text);
-
-            const blob = new Blob([parsed_text], {type: "text/plain"});
-            console.log(blob)
+            //console.log(parsed_text);
             const fn = "PLAIN_TEXT_"+ThisTitle+".txt"
-            console.log(fn)
+            //console.log(fn)
             var dataUri = "data:text/plain;base64," + btoa(unescape(encodeURIComponent(parsed_text)))
-            console.log(dataUri)
+            //console.log(dataUri)
             chrome.downloads.download({
               url: dataUri,
               filename: fn,
