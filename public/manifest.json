@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Chrome Web Scraper",
   "version": "1.0",
-  "description": "Chrome extension to scrape text from websites",
+  "description": "Chrome extension to automatically scrape text from websites. All data is automatically saved to a text file.",
   "icons": {
     "16": "icons/icon_16.png",
     "32": "icons/icon_32.png",
@@ -17,7 +17,6 @@
     "default_popup": "popup.html"
   },
   "permissions": [
-    "storage",
     "tabs",
     "activeTab",
     "downloads"
