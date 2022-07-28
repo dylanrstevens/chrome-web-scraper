@@ -1,37 +1,42 @@
 'use strict';
 
-import * as cheerio from 'cheerio';
+import {convert} from 'html-to-text';
 
 
+const sendHtml = (message) => {
+    chrome.runtime.sendMessage(
+        {
+            msg: message
+        }
+    )
+}
 
 chrome.runtime.onMessage.addListener(
     function (request) {
 
         const ThisURL = request.msg
-        const ThisTitle = request.page_title
-
+        const ThisTitle = request.page_title.replace(/[&\/\\#,+()$~%.'":*?<>{} |]/g, "-")
+        
         const getRawData = (ThisURL) => {
             return fetch(ThisURL).then((response) => response.text()).then((data) => {
+                sendHtml("")
                 return data;
-            });
+            })
         }
 
         const start = async (url) => {
             const data = await getRawData(url);
-            //console.log(data);
-            const parsedData = cheerio.load(data);
-            const parsed_text = parsedData("p").text()
-            //console.log(parsed_text);
-            const fn = "PLAIN_TEXT_"+ThisTitle+".txt"
-            //console.log(fn)
+            var parsed_text = convert(data, {wordwrap: 130})
+            const fn = "PLAIN_TEXT-"+ThisTitle+".txt"
             var dataUri = "data:text/plain;base64," + btoa(unescape(encodeURIComponent(parsed_text)))
-            //console.log(dataUri)
             chrome.downloads.download({
               url: dataUri,
               filename: fn,
               saveAs: false
             })
         }
-
-        start(ThisURL);
+        
+        start(ThisURL).catch((err) => {
+            sendHtml("Error! Looks like you're trying to scrape an address restricted by chrome. Please try a different website.")
+        })
 });

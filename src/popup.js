@@ -13,3 +13,9 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   }
 }, false);
+
+chrome.runtime.onMessage.addListener(
+    function(request) {
+        document.getElementById("error_message").innerHTML = request.msg
+    }
+)

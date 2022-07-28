@@ -28,11 +28,17 @@
         }
         .btn:hover,
         .btn:focus {
-          background-color: rgb(116, 113, 255);
+          background-color: rgb(135, 133, 255);
         }
         .title {
           font-size: 22px;
           font-weight: bold;
+        }
+        #error_message {
+          font-size: 14px;
+          font-weight: bold;
+          color: rgb(201, 0, 0);
+          padding: 7px;
         }
       </style>
       <meta charset="UTF-8">
@@ -42,7 +48,8 @@
       <div class="title">
         Web Scraper
       </div>
-        <button class="btn" id="btn">Scrape this webpage</button>
-        <script type="module" src="popup.js"></script> 
+      <button class="btn" id="btn">Scrape this webpage</button>
+      <script type="module" src="popup.js"></script> 
+      <div id="error_message"></div>
     </body>
 </html>
