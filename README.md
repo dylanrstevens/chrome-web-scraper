@@ -1,21 +1,18 @@
 # <img src="public/icons/icon_48.png" width="45" align="left"> Chrome Web Scraper
 
-My Chrome Extension
+### By Dylan Stevens
+
+Thank you for visiting the source code of the chrome web scraper!
 
 ## Features
 
-- Feature 1
-- Feature 2
-
-## Install
-
-[**Chrome** extension]() <!-- TODO: Add chrome extension link inside parenthesis -->
+- Simple UI Design
+- Allows for a one-click feature that automatically scrapes the text off of (almost) any website! (chromes' own urls i.e. chrome://extensions, chrome://... do not allow web scraping).
 
 ## Contribution
 
-Suggestions and pull requests are welcomed!.
+Suggestions are welcome!
 
 ---
 
-This project was bootstrapped with [Chrome Extension CLI](https://github.com/dutiyesh/chrome-extension-cli)
 
