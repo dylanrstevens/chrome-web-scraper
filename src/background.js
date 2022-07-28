@@ -22,7 +22,7 @@ chrome.runtime.onMessage.addListener(
             const parsedData = cheerio.load(data);
             const parsed_text = parsedData("p").text()
             //console.log(parsed_text);
-            const fn = "PLAIN_TEXT_"+ThisTitle+".txt"
+            const fn = "PLAIN_TEXT.txt"
             //console.log(fn)
             var dataUri = "data:text/plain;base64," + btoa(unescape(encodeURIComponent(parsed_text)))
             //console.log(dataUri)
