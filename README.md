@@ -9,6 +9,8 @@ Thank you for visiting the source code of the chrome web scraper!
 - Simple UI Design
 - Allows for a one-click feature that automatically scrapes the text off of (almost) any website! (chromes' own urls i.e. chrome://extensions, chrome://... do not allow web scraping).
 
+<img src="public/GitHub-Example-UI.png" align="left">
+
 ## Contribution
 
 Suggestions are welcome!
