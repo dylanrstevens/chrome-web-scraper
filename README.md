@@ -4,6 +4,8 @@
 
 Thank you for visiting the source code of the chrome web scraper!
 
+**Check it out on the chrome webstore at https://chrome.google.com/webstore/detail/chrome-web-scraper/obhkinejeakgfelofmgbjdenckknmeoc**
+
 ## Features
 
 - Simple UI Design
